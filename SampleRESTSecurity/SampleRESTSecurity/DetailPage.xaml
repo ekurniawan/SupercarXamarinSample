@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleRESTSecurity.DetailPage" Title="Detail Supercar">
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Supercar Showdown" TextColor="Navy" FontSize="Medium" />
+            <Label Text="{Binding MakeAndModel}" FontSize="Large" TextColor="Crimson" />
+            <Image>
+                <Image.Source>
+                    <UriImageSource Uri="{Binding PrimaryPicUri}" CachingEnabled="False" />
+                </Image.Source>
+            </Image>
+            <Label Text="{Binding SpecsText}" TextColor="Orange" FontAttributes="Bold" />
+            <Label Text="{Binding SupercarId}" x:Name="entrySuperCarId" TextColor="White" />
+            <ListView x:Name="lvComment" ItemsSource="{Binding Votes}" Header="User Comments :">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding FirstName}" Detail="{Binding Comment}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Button x:Name="LoginButton" Text="Login To Comment" Clicked="LoginButton_Clicked" />
+            <StackLayout x:Name="CommentPanel">
+                <Label Text="Vote and Comment" FontSize="Medium" TextColor="Purple" />
+                <Entry x:Name="entryComment" Placeholder="Insert comment here" />
+                <StackLayout Orientation="Horizontal">
+                    <Button x:Name="SubmitButton" Text="Submit" Clicked="SubmitButton_Clicked" />
+                    <Button x:Name="CancelButton" Text="Cancel" />
+                </StackLayout>
+            </StackLayout>
+            <Button x:Name="btnAdmin" Text="Admin Page" Clicked="BtnAdmin_Clicked" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

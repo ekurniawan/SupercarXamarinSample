@@ -2,13 +2,30 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:SampleRESTSecurity"
-             x:Class="SampleRESTSecurity.MainPage">
+             x:Class="SampleRESTSecurity.MainPage" Title="Leaderboards">
 
     <StackLayout>
         <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+        <ListView x:Name="lvLeaderboard" ItemTapped="LvLeaderboard_ItemTapped" HasUnevenRows="True" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="10">
+                            <Image WidthRequest="100">
+                                <Image.Source>
+                                    <UriImageSource Uri="{Binding ThumbnailUri}" CachingEnabled="False" />
+                                </Image.Source>
+                            </Image>
+                            <StackLayout Padding="10">
+                                <Label Text="{Binding MakeAndModel}" TextColor="Red" FontSize="Medium" FontAttributes="Bold" />
+                                <Label Text="{Binding VotesText}" TextColor="Orange" />
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                    <!--<ImageCell ImageSource="http://hack-yourself-first.com/Images/Cars/1/thumb.jpg" Text="{Binding MakeAndModel}" Detail="{Binding VotesText}" DetailColor="Orange" />-->
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </StackLayout>
 
 </ContentPage>

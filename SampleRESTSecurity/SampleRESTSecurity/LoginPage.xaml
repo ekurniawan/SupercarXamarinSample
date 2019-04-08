@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleRESTSecurity.LoginPage" Title="Login Page">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Supercar Showdown" TextColor="Navy" FontSize="Medium" />
+            <Label Text="Login" TextColor="Red" FontSize="Large" />
+            <Entry x:Name="entryEmail" Keyboard="Email" Placeholder="insert your email" />
+            <Entry x:Name="entryPasswword" IsPassword="True" Placeholder="insert your password" />
+            <StackLayout Orientation="Horizontal">
+                <Button x:Name="LoginButton" Text="Login" Clicked="LoginButton_Clicked" />
+            </StackLayout>
+            <Label x:Name="lblKeterangan" TextColor="Red" TextDecorations="Underline" Text="Username/Password not match"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
